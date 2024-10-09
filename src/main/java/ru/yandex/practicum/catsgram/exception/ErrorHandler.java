@@ -30,5 +30,12 @@ public class ErrorHandler {
         return new ErrorResponse(e.getMessage());
     }
 
+    @ExceptionHandler
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public ErrorResponse handleUserNotFoundException(final UserNotFoundException e) {
+        log.info("409 {}", e.getMessage());
+        return new ErrorResponse(e.getMessage());
+    }
+
 
 }
