@@ -10,6 +10,7 @@ import ru.yandex.practicum.catsgram.model.Post;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PostService {
@@ -34,5 +35,11 @@ public class PostService {
         ));
         posts.add(post);
         return post;
+    }
+
+    public Optional<Post> findById(int postId) {
+        return posts.stream()
+                .filter(x -> x.getId() == postId)
+                .findFirst();
     }
 }

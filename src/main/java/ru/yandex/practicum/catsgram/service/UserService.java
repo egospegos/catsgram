@@ -6,10 +6,12 @@ import org.springframework.stereotype.Service;
 import ru.yandex.practicum.catsgram.controller.PostController;
 import ru.yandex.practicum.catsgram.exception.InvalidEmailException;
 import ru.yandex.practicum.catsgram.exception.UserAlreadyExistException;
+import ru.yandex.practicum.catsgram.model.Post;
 import ru.yandex.practicum.catsgram.model.User;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Optional;
 
 @Service
 
@@ -41,6 +43,7 @@ public class UserService {
         users.put(user.getEmail(), user);
         return user;
     }
+
 
     public User findUserByEmail(String email) {
         if (email == null) {
